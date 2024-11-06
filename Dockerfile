@@ -1,12 +1,7 @@
-# Start with a Python image
-FROM python:3.10-slim
+FROM mitmproxy/mitmproxy
 
-# Install mitmproxy
-RUN pip install mitmproxy
-
-# Expose the default mitmproxy ports
+# Expose the default mitmproxy port
 EXPOSE 8080
-EXPOSE 8081
 
-# Start mitmproxy in transparent mode
-CMD ["mitmdump", "--mode", "transparent"]
+# Start mitmproxy in regular mode
+CMD ["mitmweb", "--web-host", "0.0.0.0", "--web-port", "8080"]
