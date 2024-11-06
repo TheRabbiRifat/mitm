@@ -5,7 +5,7 @@ FROM python:3.10-slim
 RUN pip install mitmproxy
 
 # Expose the default mitmproxy ports
-EXPOSE 8080
+EXPOSE 8080 8081
 
 # Start mitmproxy in web mode
-CMD ["mitmweb", "--web-host", "0.0.0.0", "--web-port", "8080"]
+CMD ["mitmweb", "--mode", "transparent", "--listen-port", "8080", "--web-host", "0.0.0.0", "--web-port", "8081"]
