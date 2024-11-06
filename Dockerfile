@@ -1,7 +1,11 @@
-FROM mitmproxy/mitmproxy
+# Start with a lightweight Python image
+FROM python:3.10-slim
 
-# Expose the default mitmproxy port
+# Install mitmproxy
+RUN pip install mitmproxy
+
+# Expose the default mitmproxy ports
 EXPOSE 8080
 
-# Start mitmproxy in regular mode
+# Start mitmproxy in web mode
 CMD ["mitmweb", "--web-host", "0.0.0.0", "--web-port", "8080"]
