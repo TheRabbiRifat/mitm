@@ -8,4 +8,4 @@ RUN pip install mitmproxy
 EXPOSE 8080 8081
 
 # Start mitmproxy in web mode
-CMD ["mitmweb", "--mode", "transparent", "--listen-port", "8080", "--web-host", "0.0.0.0", "--web-port", "8081"]
+CMD ["mitmweb", "--listen-port", "8080", "--web-host", "0.0.0.0", "--web-port", "8081"]
